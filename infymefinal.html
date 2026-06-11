@@ -300,6 +300,23 @@ body{
   flex-shrink:0;
 }
 
+/* active nav icon — purple filled circle */
+.ni.nav-active{
+  background:#6a0dad;
+  box-shadow:0 3px 12px rgba(106,13,173,.35);
+}
+.ni.nav-active svg path,
+.ni.nav-active svg circle,
+.ni.nav-active svg rect{
+  stroke:#fff !important;
+  fill:none !important;
+}
+/* home filled icon when active */
+.ni.nav-active .home-fill{
+  fill:#fff !important;
+  stroke:none !important;
+}
+
 /* active home — purple rounded square */
 .ni-home{
   background:#6a0dad;
@@ -422,6 +439,147 @@ body{
   z-index:400;opacity:0;transition:all .25s ease;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ─── SCREEN MANAGER ─── */
+.screen{
+  display:none;
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  width:100%;height:100%;
+  z-index:150;
+  background:#ede8f8;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.screen.active{display:block;}
+.screen::-webkit-scrollbar{display:none;}
+
+/* ─── PROFILE PAGE (IMG_0051) ─── */
+.prof-hero{
+  background:#b899e0;
+  padding:56px 20px 32px;
+  position:relative;overflow:hidden;min-height:195px;
+  width:100%;
+}
+.prof-hero-blob{
+  position:absolute;right:0;top:0;
+  width:45%;height:100%;
+  background:#9b6fd4;
+  border-radius:0 0 0 60px;
+}
+.prof-back{
+  position:absolute;top:14px;left:16px;
+  display:flex;align-items:center;gap:6px;
+  color:#fff;font-size:15px;font-weight:500;cursor:pointer;
+}
+.prof-page-title{
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  color:#fff;font-size:16px;font-weight:600;letter-spacing:.2px;
+}
+.prof-avatar{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(240,235,255,0.85);
+  display:flex;align-items:center;justify-content:center;
+  position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  margin-top:8px;
+}
+.prof-name{color:#fff;font-size:22px;font-weight:700;margin-top:10px;margin-bottom:6px;}
+.prof-show-link{color:#6a0dad;font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;background:transparent;}
+
+.prof-body{
+  background:#ede8f8;
+  border-radius:22px 22px 0 0;
+  margin-top:-14px;padding:16px 16px 120px;
+  position:relative;width:100%;
+  min-height:calc(100vh - 160px);
+}
+.prof-pill{
+  width:36px;height:4px;background:#c0b0d8;border-radius:2px;
+  margin:0 auto 18px;
+}
+.prof-section{margin-bottom:22px;}
+.prof-sec-title{font-size:17px;font-weight:700;color:#111;margin-bottom:4px;}
+.prof-sec-sub{font-size:13px;color:#555;margin-bottom:6px;}
+.prof-link{color:#6a0dad;font-size:13px;font-weight:500;cursor:pointer;}
+
+.prof-btn-row{
+  background:rgba(255,255,255,0.6);border-radius:14px;
+  padding:16px;text-align:center;
+  color:#6a0dad;font-size:14px;font-weight:500;
+  cursor:pointer;margin-bottom:10px;
+  box-shadow:0 1px 6px rgba(100,0,180,.06);
+}
+
+/* ─── FULL PROFILE PAGE (IMG_0052) ─── */
+.fp-hero{
+  background:#b899e0;
+  padding:56px 20px 32px;
+  position:relative;overflow:hidden;min-height:185px;
+  width:100%;
+  display:flex;flex-direction:column;align-items:center;
+}
+.fp-hero-blob{
+  position:absolute;right:0;top:0;
+  width:45%;height:100%;
+  background:#9b6fd4;
+  border-radius:0 0 0 60px;
+}
+.fp-back{
+  position:absolute;top:14px;left:16px;
+  display:flex;align-items:center;gap:4px;
+  color:#fff;font-size:22px;font-weight:300;cursor:pointer;
+}
+.fp-avatar{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(255,255,255,.22);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:10px;position:relative;z-index:1;
+}
+.fp-name{
+  color:#fff;font-size:20px;font-weight:700;
+  display:flex;align-items:center;gap:8px;position:relative;z-index:1;
+}
+.fp-qr{
+  width:22px;height:22px;opacity:.8;
+}
+
+/* tabs */
+.fp-tabs{
+  display:flex;overflow-x:auto;
+  background:#ede8f8;padding:0 16px;
+  border-bottom:1px solid rgba(106,13,173,.12);
+  position:sticky;top:0;z-index:10;
+}
+.fp-tabs::-webkit-scrollbar{display:none;}
+.fp-tab{
+  padding:13px 14px;font-size:13px;font-weight:500;color:#888;
+  white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;
+  flex-shrink:0;
+}
+.fp-tab.active{color:#6a0dad;border-bottom:2px solid #6a0dad;font-weight:600;}
+
+.fp-body{background:#ede8f8;padding:18px 16px 120px;min-height:50vh;}
+
+.fp-card{
+  background:rgba(255,255,255,0.55);border-radius:16px;
+  padding:18px 16px;margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(100,0,180,.05);
+}
+.fp-card-title{font-size:16px;font-weight:700;color:#111;margin-bottom:14px;}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 10px;}
+.fp-field label{font-size:11px;color:#888;display:flex;align-items:center;gap:5px;margin-bottom:3px;}
+.fp-field value{font-size:13px;font-weight:600;color:#111;display:block;}
+
+.fp-note{
+  background:rgba(200,180,240,0.2);border-radius:10px;padding:12px;
+  font-size:11.5px;color:#555;line-height:1.6;margin-top:10px;
+}
+.fp-note strong{color:#333;}
+
+.fp-dis-card{background:rgba(255,255,255,0.55);border-radius:16px;padding:18px 16px;
+  box-shadow:0 2px 8px rgba(100,0,180,.05);}
+.fp-dis-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.fp-dis-title{font-size:16px;font-weight:700;color:#111;}
 </style>
 </head>
 <body>
@@ -472,6 +630,7 @@ body{
         3DEXPERIENCE<br>
         User Conference 2026
       </h2>
+      <div class="date-loc">11-12 March, 2026 &nbsp;|&nbsp; Boston</div>
     </div>
 
     <div class="dots">
@@ -518,7 +677,7 @@ body{
             <div class="meet-num">4</div>
           </div>
           <div class="meet-time">02:30 PM - 03:30 PM</div>
-          <div class="meet-name">Bilfinger Daily Status Call</div>
+          <div class="meet-name">IRC Sports Update | Infosys Cricket League (ICL 4.0) Player's Auction | 11…</div>
           <div class="meet-plat">MS TEAMS</div>
           <hr class="meet-hr">
           <div class="view-all">View All</div>
@@ -686,10 +845,10 @@ body{
     </svg>
   </div>
 
-  <!-- home — active purple rounded square -->
-  <div class="ni ni-home">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M3 11L12 3l9 8v9a1 1 0 01-1 1h-5v-5h-6v5H4a1 1 0 01-1-1v-9z" fill="#fff"/>
+  <!-- home -->
+  <div class="ni nav-active" id="navHome" onclick="showScreen(null)" style="cursor:pointer;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path class="home-fill" d="M3 11L12 3l9 8v9a1 1 0 01-1 1h-5v-5h-6v5H4a1 1 0 01-1-1v-9z" stroke="#aaa" stroke-width="2" stroke-linejoin="round"/>
     </svg>
   </div>
 
@@ -715,7 +874,7 @@ body{
   </div>
 
   <!-- person -->
-  <div class="ni">
+  <div class="ni" id="navProfile" onclick="showScreen('profileScreen')">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="8" r="4" stroke="#aaa" stroke-width="2"/>
       <path d="M4 20c0-3.9 3.6-7 8-7s8 3.1 8 7" stroke="#aaa" stroke-width="2" stroke-linecap="round"/>
@@ -776,7 +935,174 @@ body{
 
 <div class="toast" id="toast"></div>
 
+<!-- ════ PROFILE SCREEN (IMG_0051) ════ -->
+<div class="screen" id="profileScreen">
+  <!-- Hero -->
+  <div class="prof-hero">
+    <div class="prof-hero-blob"></div>
+    <div class="prof-back" onclick="showScreen(null)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Profile
+    </div>
+    <div class="prof-avatar">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="4" fill="#7c3aed"/>
+        <path d="M4 20c0-3.9 3.6-7 8-7s8 3.1 8 7" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="prof-name">Nehal Rajesh Panara</div>
+    <div class="prof-show-link" onclick="showScreen('fullProfileScreen')">Show Full Profile</div>
+  </div>
+
+  <!-- Body -->
+  <div class="prof-body">
+    <div class="prof-pill"></div>
+
+    <!-- Attendance -->
+    <div class="prof-section">
+      <div class="prof-sec-title">Attendance</div>
+      <div class="prof-sec-sub">Average working hours for Q1 9:04 hrs</div>
+      <div class="prof-link">View Swipe Record</div>
+    </div>
+
+    <!-- Career card -->
+    <div class="prof-section">
+      <div class="prof-sec-title">Career card</div>
+      <div class="prof-sec-sub">Don't miss opportunities! Update your skills in career card now.</div>
+      <div class="prof-link">Update Now</div>
+    </div>
+
+    <!-- Allocated projects -->
+    <div class="prof-section">
+      <div class="prof-sec-title">Allocated projects</div>
+      <div class="prof-sec-sub">Allocated 100.00% to BIL2UWCS project from 23 Feb 2026 to 07 Aug 2026</div>
+      <div class="prof-link">More details</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="prof-btn-row">Information Security</div>
+    <div class="prof-btn-row">View data privacy dashboard</div>
+  </div>
+</div>
+
+<!-- ════ FULL PROFILE SCREEN (IMG_0052) ════ -->
+<div class="screen" id="fullProfileScreen">
+  <!-- Hero -->
+  <div class="fp-hero">
+    <div class="fp-hero-blob"></div>
+    <div class="fp-back" onclick="showScreen('profileScreen')">&#8592;</div>
+    <div class="fp-avatar">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.85)"/>
+        <path d="M4 20c0-3.9 3.6-7 8-7s8 3.1 8 7" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="fp-name">
+      Nehal Rajesh Panara
+      <svg class="fp-qr" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+        <path d="M14 14h2v2h-2zM18 14h3M14 18h1M17 18h3M20 21h-3M14 21h1"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="fp-tabs">
+    <div class="fp-tab">Dashboard</div>
+    <div class="fp-tab active">Personal</div>
+    <div class="fp-tab">Official</div>
+    <div class="fp-tab">Stripes</div>
+    <div class="fp-tab">Financial</div>
+  </div>
+
+  <!-- Body -->
+  <div class="fp-body">
+    <!-- Personal Information -->
+    <div class="fp-card">
+      <div class="fp-card-title">Personal information</div>
+      <div class="fp-grid">
+        <div class="fp-field">
+          <label>Employee Name</label>
+          <value>Nehal Rajesh Panara</value>
+        </div>
+        <div class="fp-field">
+          <label>Gender</label>
+          <value>FEMALE</value>
+        </div>
+        <div class="fp-field">
+          <label>Date of Birth</label>
+          <value>09 Nov 1999</value>
+        </div>
+        <div class="fp-field">
+          <label>Marital Status</label>
+          <value>Single</value>
+        </div>
+        <div class="fp-field">
+          <label>Place of Birth</label>
+          <value>&nbsp;</value>
+        </div>
+        <div class="fp-field">
+          <label>Nationality</label>
+          <value>Indian</value>
+        </div>
+        <div class="fp-field">
+          <label>Primary Citizenship</label>
+          <value>Indian</value>
+        </div>
+        <div class="fp-field">
+          <label>Citizenship 2</label>
+          <value>&nbsp;</value>
+        </div>
+        <div class="fp-field">
+          <label>Domicile</label>
+          <value>&nbsp;</value>
+        </div>
+        <div class="fp-field">
+          <label>Disability Record</label>
+          <value>Not Disabled</value>
+        </div>
+      </div>
+      <div class="fp-note">
+        Note:For any technical issues please follow below path to raise an IHD.<br>
+        <strong>IHD -&gt;IS -&gt;Harmony -&gt;Personal</strong>
+      </div>
+    </div>
+
+    <!-- Disability -->
+    <div class="fp-dis-card">
+      <div class="fp-dis-hdr">
+        <div class="fp-dis-title">Disability</div>
+      </div>
+      <div class="fp-field">
+        <label>Disability Status</label>
+        <value>Not Disabled</value>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+function showScreen(id){
+  // hide all screens
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+
+  // reset all nav icons to grey
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('nav-active'));
+
+  if(id){
+    const el=document.getElementById(id);
+    if(el){el.classList.add('active');el.scrollTop=0;}
+    // highlight person icon for any profile screen
+    document.getElementById('navProfile').classList.add('nav-active');
+  } else {
+    // home screen — highlight home icon
+    document.getElementById('navHome').classList.add('nav-active');
+  }
+}
+
 let seats=[
   {date:'2026-03-11',id:'MUM01 01 10 A 081',city:'Mumbai',build:'MUMVIKHROLI1, SDB01',slot:'SLOT-3',dur:'FULL-DAY',zone:'A'},
   {date:'2026-03-12',id:'MUM01 01 10 A 091',city:'Mumbai',build:'MUMVIKHROLI1, SDB01',slot:'SLOT-3',dur:'FULL-DAY',zone:'A'},
